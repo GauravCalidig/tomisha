@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/meta/widgets/box.dart';
 
 import '../../../meta/utils/ts.dart';
 
-class HomeAppbar extends StatelessWidget {
+class HomeAppbar extends StatelessWidget with PreferredSizeWidget {
   const HomeAppbar({Key? key}) : super(key: key);
 
   @override
@@ -13,7 +14,6 @@ class HomeAppbar extends StatelessWidget {
       backgroundColor: Colors.white,
       title: Container(
         decoration: const BoxDecoration(
-          // color: Colors.transparent,
           borderRadius: BorderRadius.only(
             bottomLeft: Radius.circular(16),
             bottomRight: Radius.circular(16),
@@ -32,17 +32,20 @@ class HomeAppbar extends StatelessWidget {
               height: 12,
               width: MediaQuery.of(context).size.width,
             ),
-            const SizedBox(
-              height: 15,
-            ),
+            const HBox(15),
             Row(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 const Spacer(),
-                InkWell(
-                  onTap: () {},
+                TextButton(
+                  onPressed: () {},
+                  style: TextButton.styleFrom(
+                      padding: EdgeInsets.zero,
+                      minimumSize: const Size(60, 0),
+                      tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                      alignment: Alignment.center),
                   child: Text(
-                    "  Login    ",
+                    "Login",
                     style: Ts.semiBold14(color: const Color(0xff319795)),
                   ),
                 ),
@@ -58,4 +61,7 @@ class HomeAppbar extends StatelessWidget {
       )),
     );
   }
+
+  @override
+  Size get preferredSize => AppBar().preferredSize;
 }
