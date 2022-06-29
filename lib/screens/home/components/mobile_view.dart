@@ -88,7 +88,7 @@ class HomeMobileView extends StatelessWidget {
                       ),
                       child: Text(
                         "Arbeitnehmer",
-                        style: TextStyle(fontSize: 17, color: index == 0 ? Colors.white : const Color(0xff319795)),
+                        style: Ts.semiBold14(color: index == 0 ? Colors.white : const Color(0xff319795)),
                       ),
                     ),
                   ),
@@ -109,7 +109,7 @@ class HomeMobileView extends StatelessWidget {
                       ),
                       child: Text(
                         "Arbeitgeber",
-                        style: TextStyle(fontSize: 17, color: index == 1 ? Colors.white : const Color(0xff319795)),
+                        style: Ts.semiBold14(color: index == 1 ? Colors.white : const Color(0xff319795)),
                       ),
                     ),
                   ),
@@ -134,7 +134,7 @@ class HomeMobileView extends StatelessWidget {
                       ),
                       child: Text(
                         "Temporärbüro",
-                        style: TextStyle(fontSize: 17, color: index == 2 ? Colors.white : const Color(0xff319795)),
+                        style: Ts.semiBold14(color: index == 2 ? Colors.white : const Color(0xff319795)),
                       ),
                     ),
                   ),
