@@ -79,9 +79,14 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
             topLeft: Radius.circular(15),
           )),
           child: Container(
+            clipBehavior: Clip.hardEdge,
+            decoration: BoxDecoration(
+              color: Colors.transparent,
+              borderRadius: BorderRadius.circular(13),
+            ),
             margin: EdgeInsets.only(top: 22, bottom: 22, left: 20, right: 20),
-            color: Colors.white,
             child: InkWell(
+              borderRadius: BorderRadius.circular(13),
               onTap: () {},
               child: Container(
                 alignment: Alignment.center,
