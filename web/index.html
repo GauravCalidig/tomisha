@@ -18,7 +18,9 @@
 
   <meta charset="UTF-8">
   <meta content="IE=Edge" http-equiv="X-UA-Compatible">
-  <meta name="description" content="A new Flutter project.">
+  <meta name="description" content="Test Task">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <!-- iOS meta tags & icons -->
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -38,8 +40,39 @@
   </script>
   <!-- This script adds the flutter initialization JS code -->
   <script src="flutter.js" defer></script>
+
+  <style>
+    body {
+        margin: 0;
+        padding: 0;
+    }
+    .container {
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+</style>
+
 </head>
-<body>
+<body style="background-color:#faf2e3">
+
+  <div class="container">
+    <canvas id="canvas" width="300" height="300"></canvas>
+</div>
+ 
+    <script src="https://unpkg.com/@rive-app/canvas@1.0.47"></script>
+    <script>
+      new rive.Rive({
+        src: "splash.riv",
+        canvas: document.getElementById("canvas"),
+        autoplay: true
+      });
+    </script>
+
+  
+
+
   <script>
     window.addEventListener('load', function(ev) {
       // Download main.dart.js
