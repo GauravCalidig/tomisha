@@ -9,11 +9,13 @@ class HomeAppbar extends StatelessWidget with PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      elevation: 6,
+      elevation: 30,
       titleSpacing: 0,
       backgroundColor: Colors.white,
       title: Container(
+        clipBehavior: Clip.hardEdge,
         decoration: const BoxDecoration(
+          color: Colors.white,
           borderRadius: BorderRadius.only(
             bottomLeft: Radius.circular(16),
             bottomRight: Radius.circular(16),

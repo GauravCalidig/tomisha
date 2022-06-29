@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/meta/widgets/box.dart';
 import 'package:flutter_custom_clippers/flutter_custom_clippers.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:flutter_svg_provider/flutter_svg_provider.dart' as svg_provider;
 import 'package:google_fonts/google_fonts.dart';
 
 import '../../../meta/models/home_model.dart';
+import '../../../meta/utils/ts.dart';
 import '../common/clippers.dart';
 
 class HomeDesktopView extends StatelessWidget {
@@ -31,36 +33,39 @@ class HomeDesktopView extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     const SafeArea(child: SizedBox.shrink()),
-                    const Text(
+                    Text(
                       'Deine Job \nwebsite',
-                      style: TextStyle(fontSize: 42, fontWeight: FontWeight.w500),
+                      style: Ts.medium60(color: const Color(0xFF2D3748)),
                       textAlign: TextAlign.left,
                     ),
-                    const SizedBox(height: 20),
-                    Container(
-                      padding: const EdgeInsets.symmetric(horizontal: 80),
-                      alignment: Alignment.center,
-                      height: 40,
-                      decoration: BoxDecoration(
-                        gradient: const LinearGradient(
-                          begin: Alignment.topLeft,
-                          end: Alignment.bottomRight,
-                          colors: [
-                            Color(0xff319795),
-                            Color(0xff3182CE),
-                          ],
+                    const SizedBox(height: 77),
+                    InkWell(
+                      onTap: () {},
+                      child: Container(
+                        padding: const EdgeInsets.symmetric(horizontal: 80),
+                        alignment: Alignment.center,
+                        height: 40,
+                        decoration: BoxDecoration(
+                          gradient: const LinearGradient(
+                            begin: Alignment.topLeft,
+                            end: Alignment.bottomRight,
+                            colors: [
+                              Color(0xff319795),
+                              Color(0xff3182CE),
+                            ],
+                          ),
+                          borderRadius: BorderRadius.circular(13),
                         ),
-                        borderRadius: BorderRadius.circular(13),
-                      ),
-                      child: const Text(
-                        "Kostenlos Registrieren",
-                        style: TextStyle(color: Colors.white),
+                        child: const Text(
+                          "Kostenlos Registrieren",
+                          style: TextStyle(color: Colors.white),
+                        ),
                       ),
                     ),
                   ],
                 ),
                 const SizedBox(
-                  width: 70,
+                  width: 144,
                 ),
                 FittedBox(
                   child: LimitedBox(
@@ -181,65 +186,45 @@ class HomeDesktopView extends StatelessWidget {
               const SizedBox(
                 height: 50,
               ),
-              Container(
-                child: Column(
-                  children: [
-                    Text(
-                      HomeData.firstColumn[index].title as String,
-                      textAlign: TextAlign.center,
-                      style: const TextStyle(
-                        fontSize: 21,
-                        fontWeight: FontWeight.w400,
-                        color: Color(0xff4A5568),
+              Column(
+                children: [
+                  Text(HomeData.firstColumn[index].title as String,
+                      textAlign: TextAlign.center, style: Ts.medium32(color: const Color(0xFF4A5568))),
+                  const SizedBox(
+                    width: 20,
+                  ),
+                  Stack(
+                    alignment: Alignment.topCenter,
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.only(top: 25.0),
+                        child: SvgPicture.asset(
+                          "assets/2.svg",
+                          fit: BoxFit.contain,
+                          height: 300,
+                        ),
                       ),
-                    ),
-                    const SizedBox(
-                      width: 20,
-                    ),
-                    Stack(
-                      alignment: Alignment.topCenter,
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.only(top: 25.0),
-                          child: SizedBox(
-                              height: 220,
-                              width: 220,
-                              child: SvgPicture.asset(
-                                "assets/2.svg",
-                                fit: BoxFit.contain,
-                              )),
+                      Padding(
+                        padding: EdgeInsets.only(top: 220.0, right: MediaQuery.of(context).size.width * 0.3),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text("1.",
+                                style: GoogleFonts.lato(
+                                  fontSize: 150,
+                                  fontWeight: FontWeight.w400,
+                                  color: const Color(0xff718096),
+                                )),
+                            Text(HomeData.firstColumn[index].description,
+                                style: Ts.semiBold19(color: const Color(0xff718096))),
+                          ],
                         ),
-                        Align(
-                          alignment: AlignmentDirectional.bottomCenter,
-                          child: Padding(
-                            padding: const EdgeInsets.only(top: 180.0),
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Text("1.",
-                                    style: GoogleFonts.lato(
-                                      fontSize: 150,
-                                      fontWeight: FontWeight.w400,
-                                      color: const Color(0xff718096),
-                                    )),
-                                Text(HomeData.firstColumn[index].description,
-                                    style: const TextStyle(
-                                      fontSize: 19,
-                                      fontWeight: FontWeight.w400,
-                                      color: Color(0xff718096),
-                                    )),
-                              ],
-                            ),
-                          ),
-                        ),
-                      ],
-                    )
-                  ],
-                ),
+                      ),
+                    ],
+                  )
+                ],
               ),
-              const SizedBox(
-                height: 15,
-              ),
+              const HBox(15),
               ClipPath(
                 clipper: CustomClipperContainerTwo(),
                 child: Container(
@@ -248,17 +233,15 @@ class HomeDesktopView extends StatelessWidget {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      const SizedBox(
-                        height: 50,
-                      ),
+                      const HBox(50),
                       Padding(
                         padding: const EdgeInsets.only(top: 20.0),
-                        child: LimitedBox(
-                            maxHeight: 200, maxWidth: 200, child: SvgPicture.asset(HomeData.secondColumn[index].image)),
+                        child: SvgPicture.asset(
+                          HomeData.secondColumn[index].image,
+                          height: 300,
+                        ),
                       ),
-                      const SizedBox(
-                        width: 20,
-                      ),
+                      const WBox(100),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
@@ -269,11 +252,7 @@ class HomeDesktopView extends StatelessWidget {
                                 color: const Color(0xff718096),
                               )),
                           Text(HomeData.secondColumn[index].description,
-                              style: const TextStyle(
-                                fontSize: 19,
-                                fontWeight: FontWeight.w400,
-                                color: Color(0xff718096),
-                              )),
+                              style: Ts.semiBold19(color: const Color(0xff718096))),
                         ],
                       ),
                     ],
@@ -290,44 +269,42 @@ class HomeDesktopView extends StatelessWidget {
               Stack(
                 children: [
                   Padding(
-                    padding: const EdgeInsets.only(
-                      right: 190.0,
-                    ),
+                    padding: EdgeInsets.only(right: MediaQuery.of(context).size.width * 0.3),
                     child: Container(
                       height: 190,
                       decoration: BoxDecoration(color: Colors.grey.withOpacity(0.1), shape: BoxShape.circle),
                     ),
                   ),
-                  Container(
-                      child: Column(
+                  Column(
                     children: [
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Text("3.",
-                              style: GoogleFonts.lato(
-                                fontSize: 150,
-                                fontWeight: FontWeight.w400,
-                                color: const Color(0xff718096),
-                              )),
-                          Text(HomeData.thirdColumn[index].description,
-                              style: const TextStyle(
-                                fontSize: 19,
-                                fontWeight: FontWeight.w400,
-                                color: Color(0xff718096),
-                              )),
-                        ],
+                      Padding(
+                        padding: EdgeInsets.only(right: MediaQuery.of(context).size.width * 0.2),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text("3.",
+                                style: GoogleFonts.lato(
+                                  fontSize: 150,
+                                  fontWeight: FontWeight.w400,
+                                  color: const Color(0xff718096),
+                                )),
+                            Text(HomeData.thirdColumn[index].description,
+                                style: Ts.semiBold19(color: const Color(0xff718096))),
+                          ],
+                        ),
                       ),
                       Padding(
                         padding: const EdgeInsets.only(top: 5.0, left: 50),
-                        child: LimitedBox(
-                            maxHeight: 200, maxWidth: 200, child: SvgPicture.asset(HomeData.thirdColumn[index].image)),
+                        child: SvgPicture.asset(
+                          HomeData.thirdColumn[index].image,
+                          height: 400,
+                        ),
                       ),
                       const SizedBox(
                         height: 50,
                       )
                     ],
-                  )),
+                  ),
                 ],
               )
             ],

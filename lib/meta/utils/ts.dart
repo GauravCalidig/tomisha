@@ -411,4 +411,8 @@ class Ts {
   static TextStyle medium42({Color? color, bool isUnderline = false}) {
     return _medium(42, color: color, isUnderline: isUnderline);
   }
+
+  static TextStyle medium60({Color? color, bool isUnderline = false}) {
+    return _medium(60, color: color, isUnderline: isUnderline);
+  }
 }
